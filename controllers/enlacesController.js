@@ -80,6 +80,7 @@ exports.obtenerEnlace = async (req, res, next) => {
     // Eliminar el archivo
     req.archivo = nombre
     // eliminar la entrada de la base de datos
+    await Enlaces.findOneAndRemove()
     next(); // para irse al siguiente controlador declarado
   } else {
     enlace.descargas--;
