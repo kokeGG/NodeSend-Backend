@@ -1,5 +1,6 @@
 const express = require('express');
 const conectarDB = require('./config/db');
+const cors = require('cors');
 
 // crear el servidor
 const app = express();
@@ -15,6 +16,12 @@ const port = process.env.PORT || 4000;
 
 // Habilitar leer los valores de un body
 app.use( express.json() );
+
+// Habilitar Cors
+const opcionesCors = {
+    origin: process.env.FRONTEND_URL
+}
+app.use(cors());
 
 // Rutas de la app
 app.use('/api/usuarios', require('./routes/usuarios'))
