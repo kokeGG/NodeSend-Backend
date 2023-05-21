@@ -11,7 +11,7 @@ exports.autenticarUsuario = async (req, res, next) => {
     return res.status(400).json({ errores: errores.array() });
   }
 
-  //Buscar el usuario paara ver si esta registrado
+  //Buscar el usuario para ver si esta registrado
   const { email, password } = req.body;
   const usuario = await Usuario.findOne({ email });
   console.log(usuario);
